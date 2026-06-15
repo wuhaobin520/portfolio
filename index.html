@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吴豪滨 · AI视觉创作者 | 作品集</title>
+    <meta name="description" content="吴豪滨 — AI视觉/视频创作者、美术设计专业应届生。作品集涵盖品牌IP设计、电商详情页、商业插画海报、平面海报、UI界面设计，擅长Midjourney + Photoshop + 剪映AI等工具。">
+    <meta name="keywords" content="吴豪滨,AI视觉设计,作品集,品牌IP,电商设计,商业插画,海报设计,UI设计,Midjourney,Photoshop">
+    <meta name="author" content="吴豪滨 Wu Haobin">
+    <meta property="og:title" content="吴豪滨 · AI视觉创作者 | 作品集">
+    <meta property="og:description" content="AI视觉/视频创作者作品集，涵盖品牌IP、电商、插画、海报、UI等多维度设计实践。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon: 粉霓虹 W 图标 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0a0a'/><text x='16' y='23' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='20' fill='%23ff2d95'>W</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ===== 霓虹加载动画 ===== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-ring"></div>
+        <div class="preloader-text">WU HAOBIN</div>
+        <div class="preloader-dots"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- ===== 星空背景粒子层 ===== -->
+    <div id="stars-canvas" class="stars-canvas"></div>
+
+    <!-- ===== 左侧导航栏 ===== -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <a href="#home" class="logo">
+                <span class="logo-icon">W</span>
+                <span class="logo-dot">.</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-text="首页">首页</a></li>
+                <li><a href="#works" class="nav-link" data-text="作品">作品</a></li>
+                <li><a href="#resume" class="nav-link" data-text="简历">简历</a></li>
+                <li><a href="#awards" class="nav-link" data-text="奖项">奖项</a></li>
+                <li><a href="#about" class="nav-link" data-text="关于">关于</a></li>
+                <li><a href="#contact" class="nav-link" data-text="联系">联系</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <span class="sidebar-year">2026</span>
+            </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== 右侧主内容 ===== -->
+    <main class="main-content">
+
+        <!-- 首屏 Hero -->
+        <section class="hero-section" id="home">
+            <div class="hero-bg">
+                <!-- 老虎插画 SVG -->
+                <svg class="tiger-art" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="tigerGlow" cx="50%" cy="40%" r="50%">
+                            <stop offset="0%" style="stop-color:#ff2d95;stop-opacity:0.15"/>
+                            <stop offset="100%" style="stop-color:transparent"/>
+                        </radialGradient>
+                        <linearGradient id="tigerStripe1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff2d95"/>
+                            <stop offset="100%" style="stop-color:#ff6b9d"/>
+                        </linearGradient>
+                        <linearGradient id="tigerStripe2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#a855f7"/>
+                            <stop offset="100%" style="stop-color:#c084fc"/>
+                        </linearGradient>
+                        <linearGradient id="tigerStripe3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#facc15"/>
+                            <stop offset="100%" style="stop-color:#fde047"/>
+                        </linearGradient>
+                        <filter id="neonBlur">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="tigerNoise">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+                            <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+                            <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="textured"/>
+                        </filter>
+                    </defs>
+                    <rect width="800" height="900" fill="url(#tigerGlow)"/>
+                    <!-- 老虎头部 -->
+                    <ellipse cx="400" cy="320" rx="220" ry="200" fill="none" stroke="url(#tigerStripe1)" stroke-width="2" opacity="0.6"/>
+                    <ellipse cx="400" cy="320" rx="200" ry="180" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.3"/>
+                    <!-- 耳朵 -->
+                    <polygon points="200,170 240,80 280,160" fill="none" stroke="url(#tigerStripe2)" stroke-width="2.5" opacity="0.7"/>
+                    <polygon points="520,160 560,80 600,170" fill="none" stroke="url(#tigerStripe2)" stroke-width="2.5" opacity="0.7"/>
+                    <polygon points="215,170 245,100 270,162" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.4"/>
+                    <polygon points="530,162 555,100 585,170" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.4"/>
+                    <!-- 眼睛 -->
+                    <ellipse cx="320" cy="280" rx="30" ry="22" fill="none" stroke="url(#tigerStripe3)" stroke-width="2.5" filter="url(#neonBlur)" opacity="0.9"/>
+                    <ellipse cx="480" cy="280" rx="30" ry="22" fill="none" stroke="url(#tigerStripe3)" stroke-width="2.5" filter="url(#neonBlur)" opacity="0.9"/>
+                    <ellipse cx="320" cy="280" rx="14" ry="18" fill="#facc15" opacity="0.8"/>
+                    <ellipse cx="480" cy="280" rx="14" ry="18" fill="#facc15" opacity="0.8"/>
+                    <ellipse cx="320" cy="280" rx="6" ry="10" fill="#0a0a0a"/>
+                    <ellipse cx="480" cy="280" rx="6" ry="10" fill="#0a0a0a"/>
+                    <!-- 鼻子 -->
+                    <path d="M380,340 Q400,330 420,340 Q400,355 380,340Z" fill="none" stroke="#ff2d95" stroke-width="2" opacity="0.7"/>
+                    <!-- 嘴巴 -->
+                    <path d="M400,350 Q380,370 360,365" fill="none" stroke="#ff2d95" stroke-width="1.5" opacity="0.5"/>
+                    <path d="M400,350 Q420,370 440,365" fill="none" stroke="#ff2d95" stroke-width="1.5" opacity="0.5"/>
+                    <!-- 额头条纹 -->
+                    <path d="M330,210 Q400,195 470,210" fill="none" stroke="url(#tigerStripe1)" stroke-width="2" opacity="0.5"/>
+                    <path d="M340,225 Q400,212 460,225" fill="none" stroke="url(#tigerStripe2)" stroke-width="1.5" opacity="0.4"/>
+                    <path d="M350,240 Q400,228 450,240" fill="none" stroke="url(#tigerStripe3)" stroke-width="1.5" opacity="0.35"/>
+                    <!-- 腮帮条纹 -->
+                    <path d="M240,320 Q260,300 280,320" fill="none" stroke="url(#tigerStripe1)" stroke-width="1.5" opacity="0.4"/>
+                    <path d="M520,320 Q540,300 560,320" fill="none" stroke="url(#tigerStripe1)" stroke-width="1.5" opacity="0.4"/>
+                    <!-- 胡须 -->
+                    <line x1="250" y1="335" x2="180" y2="325" stroke="#ff2d95" stroke-width="1" opacity="0.3"/>
+                    <line x1="250" y1="345" x2="175" y2="350" stroke="#ff2d95" stroke-width="1" opacity="0.3"/>
+                    <line x1="550" y1="335" x2="620" y2="325" stroke="#ff2d95" stroke-width="1" opacity="0.3"/>
+                    <line x1="550" y1="345" x2="625" y2="350" stroke="#ff2d95" stroke-width="1" opacity="0.3"/>
+                    <!-- 脖子/身体线条 -->
+                    <path d="M280,460 Q400,420 520,460 Q500,520 400,510 Q300,520 280,460Z" fill="none" stroke="url(#tigerStripe1)" stroke-width="1.5" opacity="0.35"/>
+                    <!-- 装饰几何元素 -->
+                    <circle cx="150" cy="500" r="40" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.15"/>
+                    <circle cx="650" cy="200" r="30" fill="none" stroke="#facc15" stroke-width="1" opacity="0.15"/>
+                    <circle cx="700" cy="550" r="50" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.1"/>
+                    <!-- 星点装饰 -->
+                    <circle cx="100" cy="100" r="2" fill="#facc15" opacity="0.6"/>
+                    <circle cx="680" cy="80" r="1.5" fill="#ff2d95" opacity="0.5"/>
+                    <circle cx="720" cy="350" r="2" fill="#a855f7" opacity="0.5"/>
+                    <circle cx="60" cy="400" r="1.5" fill="#facc15" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h1 class="hero-name">
+                    <span class="hero-name-en glitch-text" data-text="WU HAOBIN">WU HAOBIN</span>
+                </h1>
+                <div class="hero-title-row">
+                    <span class="hero-cn">吴豪滨</span>
+                    <span class="hero-divider">|</span>
+                    <span class="hero-role">AI视觉/设计师</span>
+                </div>
+                <p class="hero-bio">这份作品集记录了我的视觉设计实践，手搓与依托 AI 进行创意创作，从品牌 IP、商业海报到电商视觉多维度呈现设计能力，以创意为支点，探索视觉设计的更多可能性。</p>
+                <div class="hero-tags">
+                    <span class="tag">codex</span>
+                    <span class="tag">AI Video</span>
+                    <span class="tag">Graphic Design</span>
+                    <span class="tag">Creative Code</span>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- 作品展示 -->
+        <section class="works-section" id="works">
+            <div class="section-header">
+                <h2 class="section-title-num">01</h2>
+                <h3 class="section-title-text">SELECTED<br>WORKS</h3>
+                <div class="section-line-neon"></div>
+            </div>
+            <div class="works-grid">
+                <div class="work-item reveal work-item-has-preview" id="workIpDesign">
+                    <div class="work-number">01</div>
+                    <div class="work-card-inner">
+                        <div class="work-visual visual-purple">
+                            <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="220" fill="#0a0a0a"/>
+                                <!-- 头部 -->
+                                <ellipse cx="150" cy="95" rx="38" ry="42" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+                                <!-- 眼睛 -->
+                                <ellipse cx="135" cy="88" rx="9" ry="7" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.5"/>
+                                <ellipse cx="165" cy="88" rx="9" ry="7" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.5"/>
+                                <circle cx="135" cy="88" r="3" fill="#c084fc" opacity="0.4"/>
+                                <circle cx="165" cy="88" r="3" fill="#c084fc" opacity="0.4"/>
+                                <!-- 眉毛 -->
+                                <path d="M125,78 Q135,73 145,78" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.5"/>
+                                <path d="M155,78 Q165,73 175,78" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.5"/>
+                                <!-- 鼻子 -->
+                                <path d="M150,95 L147,105 L153,105 Z" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
+                                <!-- 嘴巴 -->
+                                <path d="M140,112 Q150,118 160,112" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.5"/>
+                                <!-- 耳朵 -->
+                                <ellipse cx="115" cy="65" rx="10" ry="14" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.5" transform="rotate(-20 115 65)"/>
+                                <ellipse cx="185" cy="65" rx="10" ry="14" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.5" transform="rotate(20 185 65)"/>
+                                <!-- 帽子/街头风 -->
+                                <path d="M108,70 Q150,35 192,70" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+                                <path d="M105,70 L195,70" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+                                <rect x="125" y="48" width="50" height="8" rx="2" fill="none" stroke="#c084fc" stroke-width="0.8" opacity="0.4"/>
+                                <!-- 身体 -->
+                                <path d="M115,135 Q150,125 185,135 L190,170 Q150,180 110,170 Z" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.5"/>
+                                <!-- 衣服细节 -->
+                                <line x1="150" y1="135" x2="150" y2="165" stroke="#c084fc" stroke-width="0.8" opacity="0.3"/>
+                                <rect x="135" y="145" width="30" height="12" rx="3" fill="none" stroke="#c084fc" stroke-width="0.7" opacity="0.35"/>
+                                <!-- 手臂 -->
+                                <path d="M115,140 L95,155" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
+                                <path d="M185,140 L205,155" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
+                                <!-- 手 -->
+                                <circle cx="93" cy="158" r="5" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.4"/>
+                                <circle cx="207" cy="158" r="5" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.4"/>
+                                <!-- 项链/配饰 -->
+                                <path d="M135,135 Q150,155 165,135" fill="none" stroke="#c084fc" stroke-width="0.8" opacity="0.4"/>
+                                <circle cx="150" cy="148" r="3" fill="none" stroke="#a855f7" stroke-width="0.8" opacity="0.5"/>
+                                <!-- 底部文字 -->
+                                <text x="150" y="195" text-anchor="middle" fill="#c084fc" font-size="11" font-family="sans-serif" letter-spacing="3">BRAND IP</text>
+                            </svg>
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category" style="color:#a855f7">IP形象设计</span>
+                            <h4>IP形象设计</h4>
+                            <p>美式街头风IP形象全案设计，含三视图、表情包与衍生海报，完整呈现角色设定与应用场景。</p>
+                            <span class="work-en">Character Design · Brand IP</span>
+                        </div>
+                    </div>
+                    <!-- 悬浮预览框 -->
+                    <div class="hover-preview" id="ipPreview">
+                        <div class="preview-scroll preview-scroll-purple">
+                            <img src="vi-longboard.jpg" alt="IP形象设计VI长图" class="preview-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-item reveal work-item-has-preview" id="workDetailPage">
+                    <div class="work-number">02</div>
+                    <div class="work-card-inner">
+                        <div class="work-visual visual-pink">
+                            <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="220" fill="#0a0a0a"/>
+                                <rect x="55" y="25" width="190" height="150" rx="6" fill="none" stroke="#ff2d95" stroke-width="1.5" opacity="0.6"/>
+                                <rect x="55" y="25" width="190" height="22" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+                                <circle cx="67" cy="36" r="3" fill="#ff2d95" opacity="0.5"/>
+                                <circle cx="76" cy="36" r="3" fill="#ff6b9d" opacity="0.4"/>
+                                <circle cx="85" cy="36" r="3" fill="#ff6b9d" opacity="0.3"/>
+                                <line x1="110" y1="36" x2="180" y2="36" stroke="#ff6b9d" stroke-width="0.8" opacity="0.35"/>
+                                <rect x="65" y="55" width="170" height="110" rx="3" fill="none" stroke="#ff2d95" stroke-width="0.8" opacity="0.35"/>
+                                <rect x="72" y="60" width="90" height="65" rx="3" fill="none" stroke="#ff2d95" stroke-width="1.2" opacity="0.55"/>
+                                <rect x="78" y="66" width="78" height="53" rx="2" fill="none" stroke="#ff6b9d" stroke-width="0.6" opacity="0.35"/>
+                                <rect x="105" y="80" width="24" height="24" rx="3" fill="none" stroke="#ff2d95" stroke-width="1.2" opacity="0.6"/>
+                                <line x1="112" y1="90" x2="122" y2="90" stroke="#ff2d95" stroke-width="0.8" opacity="0.5"/>
+                                <line x1="112" y1="95" x2="118" y2="95" stroke="#ff6b9d" stroke-width="0.6" opacity="0.4"/>
+                                <rect x="170" y="60" width="58" height="8" rx="2" fill="none" stroke="#ff6b9d" stroke-width="0.7" opacity="0.45"/>
+                                <rect x="170" y="74" width="45" height="6" rx="2" fill="none" stroke="#ff6b9d" stroke-width="0.5" opacity="0.3"/>
+                                <rect x="170" y="84" width="35" height="6" rx="2" fill="none" stroke="#ff6b9d" stroke-width="0.5" opacity="0.25"/>
+                                <rect x="170" y="98" width="40" height="12" rx="3" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.5"/>
+                                <text x="190" y="107" text-anchor="middle" fill="#ff2d95" font-size="7" font-family="sans-serif" opacity="0.6">¥</text>
+                                <rect x="72" y="132" width="40" height="14" rx="3" fill="none" stroke="#ff6b9d" stroke-width="0.7" opacity="0.35"/>
+                                <rect x="118" y="132" width="40" height="14" rx="3" fill="none" stroke="#ff6b9d" stroke-width="0.7" opacity="0.3"/>
+                                <rect x="164" y="132" width="40" height="14" rx="3" fill="none" stroke="#ff6b9d" stroke-width="0.7" opacity="0.25"/>
+                                <path d="M190,145 L210,145 L215,155 L185,155 Z" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.55"/>
+                                <circle cx="193" cy="159" r="2" fill="none" stroke="#ff2d95" stroke-width="0.7" opacity="0.5"/>
+                                <circle cx="207" cy="159" r="2" fill="none" stroke="#ff2d95" stroke-width="0.7" opacity="0.5"/>
+                                <text x="150" y="190" text-anchor="middle" fill="#ff6b9d" font-size="11" font-family="sans-serif" letter-spacing="3">DETAIL PAGE</text>
+                            </svg>
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category" style="color:#ff2d95">详情页设计</span>
+                            <h4>电商详情页设计</h4>
+                            <p>电商详情页全案设计，包含沐浴露与精华液两款产品，完整呈现从用户痛点、卖点转化到视觉落地的设计流程。</p>
+                            <span class="work-en">电商设计 · Detail Page</span>
+                        </div>
+                    </div>
+                    <!-- 悬浮预览框 -->
+                    <div class="hover-preview" id="detailPreview">
+                        <div class="preview-scroll">
+                            <img src="detail-bath.jpg" alt="沐浴露详情页设计" class="preview-img" loading="lazy">
+                            <img src="detail-repair.jpg" alt="精华液详情页设计" class="preview-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-item reveal work-item-has-preview" id="workPosterDesign">
+                    <div class="work-number">03</div>
+                    <div class="work-card-inner">
+                        <div class="work-visual visual-green">
+                            <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="220" fill="#0a0a0a"/>
+                                <rect x="60" y="40" width="180" height="140" rx="8" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
+                                <rect x="75" y="55" width="150" height="110" rx="4" fill="none" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
+                                <line x1="90" y1="75" x2="210" y2="75" stroke="#22d3ee" stroke-width="0.8" opacity="0.5"/>
+                                <line x1="90" y1="90" x2="180" y2="90" stroke="#22d3ee" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="90" y1="105" x2="195" y2="105" stroke="#22d3ee" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="90" y1="120" x2="150" y2="120" stroke="#22d3ee" stroke-width="0.6" opacity="0.3"/>
+                                <circle cx="200" cy="155" r="10" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.5"/>
+                                <text x="150" y="195" text-anchor="middle" fill="#67e8f9" font-size="12" font-family="sans-serif" letter-spacing="3">POSTER</text>
+                            </svg>
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category" style="color:#22d3ee">平面海报</span>
+                            <h4>品牌视觉海报设计</h4>
+                            <p>Photoshop精修合成，将AI生成素材与传统平面设计完美融合。</p>
+                            <span class="work-en">Photoshop · Graphic Poster</span>
+                        </div>
+                    </div>
+                    <!-- 右侧滑出预览弹窗：品牌海报 -->
+                    <div class="hover-preview hover-preview-right" id="posterPreview">
+                        <div class="preview-scroll preview-scroll-green">
+                            <img src="饿了么平面海报.png" alt="饿了么外卖海报" class="preview-img" loading="lazy">
+                            <img src="京东快送海报.png" alt="京东物流海报" class="preview-img" loading="lazy">
+                            <img src="美团平面海报.png" alt="美团外卖海报" class="preview-img" loading="lazy">
+                            <img src="众包招聘海报.png" alt="众包招聘海报" class="preview-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-item reveal work-item-has-preview" id="workUiDesign">
+                    <div class="work-number">04</div>
+                    <div class="work-card-inner">
+                        <div class="work-visual visual-yellow">
+                            <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="220" fill="#0a0a0a"/>
+                                <rect x="50" y="30" width="200" height="30" rx="4" fill="none" stroke="#facc15" stroke-width="1.5" opacity="0.6"/>
+                                <rect x="50" y="70" width="95" height="100" rx="4" fill="none" stroke="#facc15" stroke-width="1" opacity="0.4"/>
+                                <rect x="155" y="70" width="95" height="45" rx="4" fill="none" stroke="#fde047" stroke-width="1" opacity="0.4"/>
+                                <rect x="155" y="125" width="95" height="45" rx="4" fill="none" stroke="#fde047" stroke-width="1" opacity="0.3"/>
+                                <rect x="50" y="180" width="200" height="15" rx="3" fill="none" stroke="#facc15" stroke-width="0.8" opacity="0.3"/>
+                                <text x="150" y="210" text-anchor="middle" fill="#fde047" font-size="10" font-family="sans-serif" letter-spacing="3">WEB DESIGN</text>
+                            </svg>
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category" style="color:#facc15">UI设计</span>
+                            <h4>个人作品集网站</h4>
+                            <p>APP界面全流程设计，包含首页与商品详情页，兼顾用户体验与视觉呈现。</p>
+                            <span class="work-en">UIDesign · App Interface</span>
+                        </div>
+                    </div>
+                    <!-- 悬浮预览框 -->
+                    <div class="hover-preview" id="uiPreview">
+                        <div class="preview-scroll preview-scroll-yellow">
+                            <img src="ui设计1.png" alt="APP首页界面设计" class="preview-img" loading="lazy">
+                            <img src="ui设计2.png" alt="APP详情页界面设计" class="preview-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <!-- 05 商业插画 -->
+                <div class="work-item reveal work-item-has-preview" id="workIllustrationPoster">
+                    <div class="work-number">05</div>
+                    <div class="work-card-inner">
+                        <div class="work-visual visual-pink">
+                            <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="220" fill="#0a0a0a"/>
+                                <rect x="55" y="35" width="190" height="140" rx="10" fill="none" stroke="#ff2d95" stroke-width="1.5" opacity="0.6"/>
+                                <rect x="70" y="50" width="160" height="110" rx="6" fill="none" stroke="#fb7185" stroke-width="1" opacity="0.4"/>
+                                <circle cx="100" cy="80" r="12" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.45"/>
+                                <path d="M130 70 Q150 60 170 75 T210 68" fill="none" stroke="#fb7185" stroke-width="0.8" opacity="0.4"/>
+                                <path d="M90 110 Q120 125 160 105 T200 115" fill="none" stroke="#ff2d95" stroke-width="0.8" opacity="0.3"/>
+                                <line x1="85" y1="135" x2="215" y2="135" stroke="#fb7185" stroke-width="0.6" opacity="0.25"/>
+                                <line x1="85" y1="148" x2="180" y2="148" stroke="#fb7185" stroke-width="0.5" opacity="0.2"/>
+                                <circle cx="220" cy="165" r="8" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.5"/>
+                                <circle cx="235" cy="172" r="5" fill="none" stroke="#fb7185" stroke-width="0.8" opacity="0.4"/>
+                                <text x="150" y="196" text-anchor="middle" fill="#fb7185" font-size="11" font-family="sans-serif" letter-spacing="3">ILLUSTRATION</text>
+                            </svg>
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category" style="color:#ff2d95">商业插画</span>
+                            <h4>AI 辅助创意商业插画系列海报设计</h4>
+                            <p>依托 AI 生成插画素材，结合商业视觉规范进行二次创作，打造兼具艺术表现力与品牌传播力的系列插画海报。</p>
+                            <span class="work-en">Midjourney · Commercial Illustration</span>
+                        </div>
+                    </div>
+                    <!-- 悬浮预览弹窗：3×3 海报网格 -->
+                    <div class="hover-preview hover-preview-bottom" id="illustPreview">
+                        <div class="illust-preview-grid">
+                            <div class="illust-preview-item"><img src="春日野餐派对.png" alt="春日野餐派对" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="电玩游戏狂欢.png" alt="电玩游戏狂欢" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="冬日暖锅聚会.png" alt="冬日暖锅聚会" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="复古零食小卖部.png" alt="复古零食小卖部" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="古镇年味集市.png" alt="古镇年味集市" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="海滨冲浪度假.png" alt="海滨冲浪度假" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="山野露营出逃.png" alt="山野露营出逃" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="童话游乐园奇遇.png" alt="童话游乐园奇遇" loading="lazy"></div>
+                            <div class="illust-preview-item"><img src="夜市人间烟火.png" alt="夜市人间烟火" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 简历 -->
+        <section class="resume-section" id="resume">
+            <div class="section-header">
+                <h2 class="section-title-num">02</h2>
+                <h3 class="section-title-text">RESUME</h3>
+                <div class="section-line-neon"></div>
+            </div>
+            <div class="resume-grid">
+                <div class="resume-block reveal">
+                    <div class="resume-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff2d95" stroke-width="1.5">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                        </svg>
+                    </div>
+                    <h4>教育背景</h4>
+                    <p class="resume-title">珠海科技学院</p>
+                    <p class="resume-sub">广告学专业 · 本科</p>
+                    <p class="resume-year">2022 — 2026</p>
+                </div>
+                <div class="resume-block reveal">
+                    <div class="resume-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2"/>
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                            <path d="M12 12v.01"/>
+                        </svg>
+                    </div>
+                    <h4>实习经历</h4>
+                    <div class="exp-entry">
+                        <p class="resume-title">广州攻略宝公司</p>
+                        <p class="resume-sub">视觉设计实习生</p>
+                        <p class="resume-year">2025.06 — 2025.09</p>
+                    </div>
+                    <div class="exp-entry">
+                        <p class="resume-title">佛山荣发胶管供销商（实习）</p>
+                        <p class="resume-sub">熟悉订单处理、产品对接流程，具备需求理解与沟通能力，可快速落地设计及内容需求。</p>
+                        <p class="resume-year">2025.10 — 2026.04</p>
+                    </div>
+                </div>
+                <div class="resume-block reveal">
+                    <div class="resume-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h4>技能专长</h4>
+                    <div class="skill-tags">
+                        <span>Photoshop</span><span>Midjourney</span><span>剪映AI</span>
+                        <span>Codex</span><span>GPT</span><span>网页设计</span>
+                        <span>AI绘图</span><span>视频剪辑</span>
+                    </div>
+                </div>
+                <div class="resume-block reveal">
+                    <div class="resume-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>关于我</h4>
+                    <p class="resume-desc">美术设计专业应届毕业生，专注于AI视觉与视频创作。相信AI是放大创意的最佳伙伴，致力于用前沿技术探索视觉表达的无限可能。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 奖项 -->
+        <section class="awards-section" id="awards">
+            <div class="section-header">
+                <h2 class="section-title-num">03</h2>
+                <h3 class="section-title-text">AWARDS</h3>
+                <div class="section-line-neon"></div>
+            </div>
+            <div class="awards-list">
+                <div class="award-item reveal">
+                    <span class="award-year">2024</span>
+                    <div class="award-info">
+                        <h4>全国大学生广告艺术大赛</h4>
+                        <p>省级二等奖</p>
+                    </div>
+                    <span class="award-dot" style="background:#ff2d95"></span>
+                </div>
+                <div class="award-item reveal">
+                    <span class="award-year">2025</span>
+                    <div class="award-info">
+                        <h4>自学掌握AI辅助设计工具</h4>
+                        <p>AI绘图、AI视频，独立完成系列IP与商业物料设计</p>
+                    </div>
+                    <span class="award-dot" style="background:#a855f7"></span>
+                </div>
+                <div class="award-item reveal">
+                    <span class="award-year">2025</span>
+                    <div class="award-info">
+                        <h4>广州攻略宝公司助农电商项目</h4>
+                        <p>负责产品宣传海报、短视频封面、账号视觉设计，助力项目内容实现百万播放曝光</p>
+                        <div class="award-img-wrap">
+                            <img src="62228539ad40cbd7ff2cca6ceca34158.jpg" alt="视频号累计播放100万" class="award-img" loading="lazy">
+                        </div>
+                    </div>
+                    <span class="award-dot" style="background:#facc15"></span>
+                </div>
+                <div class="award-item reveal award-item-has-board" id="awardGraduation">
+                    <span class="award-year">2024</span>
+                    <div class="award-info">
+                        <h4>珠海科技学院优秀毕业设计</h4>
+                        <p>视觉传达方向</p>
+                        <div class="award-board" id="graduationBoard">
+                            <div class="award-board-inner">
+                                <img src="graduation-board.jpg" alt="毕业设计展板" class="award-board-img" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="award-dot" style="background:#22d3ee"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于 -->
+        <section class="about-section" id="about">
+            <div class="section-header">
+                <h2 class="section-title-num">04</h2>
+                <h3 class="section-title-text">ABOUT<br>ME</h3>
+                <div class="section-line-neon"></div>
+            </div>
+            <div class="about-content reveal">
+                <div class="about-avatar">
+                    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="80" cy="80" r="75" fill="none" stroke="#ff2d95" stroke-width="2" opacity="0.5"/>
+                        <circle cx="80" cy="80" r="65" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.3"/>
+                        <circle cx="80" cy="55" r="22" fill="none" stroke="#facc15" stroke-width="1.5" opacity="0.6"/>
+                        <ellipse cx="80" cy="120" rx="40" ry="25" fill="none" stroke="#ff2d95" stroke-width="1.5" opacity="0.4"/>
+                        <circle cx="80" cy="55" r="10" fill="#facc15" opacity="0.2"/>
+                    </svg>
+                </div>
+                <div class="about-text">
+                    <h4>Wu Haobin <span class="about-cn">吴豪滨</span></h4>
+                    <p class="about-role">AI视觉/视频创作者 · 美术设计专业应届生</p>
+                    <p class="about-desc">
+                        珠海科技学院广告学专业应届毕业生，在校期间深耕AI视觉创作领域。
+                        熟练掌握Midjourney、剪映AI、Photoshop等工具，擅长将AI生成内容与传统设计工作流结合，
+                        创造出兼具艺术性与技术感的新视觉语言。
+                    </p>
+                    <div class="about-numbers">
+                        <div class="about-num">
+                            <span class="num-value" style="color:#ff2d95">AI</span>
+                            <span class="num-label">创作驱动</span>
+                        </div>
+                        <div class="about-num">
+                            <span class="num-value" style="color:#a855f7">4+</span>
+                            <span class="num-label">AI工具精通</span>
+                        </div>
+                        <div class="about-num">
+                            <span class="num-value" style="color:#facc15">应届</span>
+                            <span class="num-label">会PS跟Illustrator基础</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧视频二维码 -->
+                <div class="about-video-card">
+                    <div class="video-qrcode-glow"></div>
+                    <img src="扫码观看视频.png" alt="扫码观看视频" class="video-qrcode-img" loading="lazy">
+                    <p class="video-label">扫码观看<br>作品视频集</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系 -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-title-num">05</h2>
+                <h3 class="section-title-text">CONTACT</h3>
+                <div class="section-line-neon"></div>
+            </div>
+            <div class="contact-wrapper reveal">
+                <div class="contact-left">
+                    <p class="contact-intro">有AI创作或设计项目想要合作？<br>欢迎随时联系我。</p>
+                    <div class="contact-cards">
+                        <a href="mailto:1617274150@qq.com" class="contact-card">
+                            <div class="cc-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <span>1617274150@qq.com</span>
+                        </a>
+                        <a href="tel:18125284983" class="contact-card">
+                            <div class="cc-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <span>18125284983</span>
+                        </a>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <input type="text" placeholder="YOUR NAME" required>
+                            <input type="email" placeholder="YOUR EMAIL" required>
+                        </div>
+                        <textarea placeholder="YOUR MESSAGE..." rows="4" required></textarea>
+                        <button type="submit" class="btn-neon">SEND MESSAGE</button>
+                    </form>
+                </div>
+
+                <!-- 右侧微信二维码 -->
+                <div class="contact-qrcode">
+                    <div class="qrcode-glow"></div>
+                    <img src="25a467e45dc3d0ad68cc1d0f0034af5d.jpg" alt="微信二维码" class="qrcode-img" loading="lazy">
+                    <p class="qrcode-label">扫一扫加微信</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer-neon">
+            <p class="footer-logo-neon">WU HAOBIN</p>
+            <div class="footer-social">
+                <a href="mailto:1617274150@qq.com">EMAIL</a>
+                <span class="footer-dot">·</span>
+                <a href="#">BEHANCE</a>
+                <span class="footer-dot">·</span>
+                <a href="#">INSTAGRAM</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Wu Haobin. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
