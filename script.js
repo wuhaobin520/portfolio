@@ -227,187 +227,81 @@ if (workIpDesign && ipPreview) {
     });
 }
 
-// ===== Poster Design Modal 弹窗（fixed 居中 + 遮罩） =====
+// ===== Poster Design Hover Preview（下方展开，同 01 模式） =====
 const workPosterDesign = document.getElementById('workPosterDesign');
 const posterPreview = document.getElementById('posterPreview');
-let posterOverlay = null;
 let posterPreviewTimer = null;
-let posterInBody = false;
-
-// 动态创建遮罩层（仅创建一次）
-function getPosterOverlay() {
-    if (!posterOverlay) {
-        posterOverlay = document.createElement('div');
-        posterOverlay.className = 'poster-modal-overlay';
-        document.body.appendChild(posterOverlay);
-
-        // 点击遮罩关闭弹窗
-        posterOverlay.addEventListener('click', closePosterModal);
-    }
-    return posterOverlay;
-}
-
-function openPosterModal() {
-    const overlay = getPosterOverlay();
-
-    // 关键：将弹窗提升到 body 层级，脱离有 transform 的祖先容器
-    if (!posterInBody && posterPreview) {
-        document.body.appendChild(posterPreview);
-        posterInBody = true;
-    }
-
-    requestAnimationFrame(() => {
-        overlay.classList.add('active');
-        posterPreview.classList.add('visible');
-    });
-}
-
-function closePosterModal() {
-    if (posterOverlay) {
-        posterOverlay.classList.remove('active');
-    }
-    posterPreview.classList.remove('visible');
-
-    // 动画结束后归还 DOM 到原位
-    setTimeout(() => {
-        if (posterInBody && posterPreview && !posterPreview.classList.contains('visible')) {
-            const originalParent = document.getElementById('workPosterDesign');
-            if (originalParent) {
-                originalParent.appendChild(posterPreview);
-                posterInBody = false;
-            }
-        }
-    }, 400);
-}
 
 if (workPosterDesign && posterPreview) {
     workPosterDesign.addEventListener('mouseenter', () => {
         clearTimeout(posterPreviewTimer);
-        openPosterModal();
+        posterPreview.classList.add('visible');
     });
 
     workPosterDesign.addEventListener('mouseleave', () => {
         posterPreviewTimer = setTimeout(() => {
-            closePosterModal();
-        }, 180);
+            posterPreview.classList.remove('visible');
+        }, 150);
     });
 
-    // 鼠标进入弹窗区域时取消关闭计时器
     posterPreview.addEventListener('mouseenter', () => {
         clearTimeout(posterPreviewTimer);
     });
 
-    // 鼠标离开弹窗区域后关闭
     posterPreview.addEventListener('mouseleave', () => {
-        posterPreviewTimer = setTimeout(() => {
-            closePosterModal();
-        }, 120);
-    });
-
-    // ESC 键关闭
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && posterPreview.classList.contains('visible')) {
-            closePosterModal();
-        }
+        posterPreview.classList.remove('visible');
     });
 }
 
-// ===== 05 商业插画 Hover Preview（右侧弹出 3×3 网格） =====
+// ===== 05 商业插画 Hover Preview（下方展开 2×2 网格，同 01 模式） =====
 const workIllustration = document.getElementById('workIllustrationPoster');
 const illustPreview = document.getElementById('illustPreview');
 let illustPreviewTimer = null;
-let illustInBody = false;
-
-function openIllustPreview() {
-    // 将弹窗提升到 body 层级（避免父元素 overflow 裁剪）
-    if (!illustInBody && illustPreview) {
-        document.body.appendChild(illustPreview);
-        illustInBody = true;
-    }
-
-    // 定位：左对齐卡片，弹窗顶部与副标题行对齐
-    const cardRect = workIllustration.getBoundingClientRect();
-    const categoryEl = workIllustration.querySelector('.work-category');
-    const catRect = categoryEl ? categoryEl.getBoundingClientRect() : null;
-
-    let left = catRect ? catRect.left : cardRect.left;
-    let top = catRect ? catRect.top : (cardRect.bottom + 16);
-
-    // 左边界防溢出
-    if (left < 10) left = 10;
-
-    illustPreview.style.left = left + 'px';
-    illustPreview.style.top = top + 'px';
-
-    requestAnimationFrame(() => {
-        illustPreview.classList.add('visible');
-    });
-}
-
-function closeIllustPreview() {
-    illustPreview.classList.remove('visible');
-
-    // 动画结束后归还 DOM
-    setTimeout(() => {
-        if (illustInBody && illustPreview && !illustPreview.classList.contains('visible')) {
-            const originalParent = document.getElementById('workIllustrationPoster');
-            if (originalParent) {
-                originalParent.appendChild(illustPreview);
-                illustInBody = false;
-            }
-        }
-    }, 350);
-}
 
 if (workIllustration && illustPreview) {
     workIllustration.addEventListener('mouseenter', () => {
         clearTimeout(illustPreviewTimer);
-        openIllustPreview();
+        illustPreview.classList.add('visible');
     });
 
     workIllustration.addEventListener('mouseleave', () => {
         illustPreviewTimer = setTimeout(() => {
-            closeIllustPreview();
+            illustPreview.classList.remove('visible');
         }, 150);
     });
 
-    // 鼠标移入弹窗内保持显示
     illustPreview.addEventListener('mouseenter', () => {
         clearTimeout(illustPreviewTimer);
     });
 
     illustPreview.addEventListener('mouseleave', () => {
-        illustPreviewTimer = setTimeout(() => {
-            closeIllustPreview();
-        }, 120);
+        illustPreview.classList.remove('visible');
+    });
+}
+
+// ===== 06 人像精修 Hover Preview（下方展开 2×2 网格） =====
+const workPortrait = document.getElementById('workPortraitRetouch');
+const portraitPreview = document.getElementById('portraitPreview');
+let portraitPreviewTimer = null;
+
+if (workPortrait && portraitPreview) {
+    workPortrait.addEventListener('mouseenter', () => {
+        clearTimeout(portraitPreviewTimer);
+        portraitPreview.classList.add('visible');
     });
 
-    // ESC 键关闭
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && illustPreview.classList.contains('visible')) {
-            closeIllustPreview();
-        }
+    workPortrait.addEventListener('mouseleave', () => {
+        portraitPreviewTimer = setTimeout(() => {
+            portraitPreview.classList.remove('visible');
+        }, 150);
     });
 
-    // 移动端点击切换弹窗（替代 hover）
-    workIllustration.addEventListener('click', (e) => {
-        if (window.innerWidth > 768) return; // 桌面端保持 hover
-        e.stopPropagation();
-        if (illustPreview.classList.contains('visible')) {
-            closeIllustPreview();
-        } else {
-            openIllustPreview();
-        }
+    portraitPreview.addEventListener('mouseenter', () => {
+        clearTimeout(portraitPreviewTimer);
     });
 
-    // 点击弹窗外部关闭（移动端）
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth > 768) return;
-        if (illustPreview.classList.contains('visible') &&
-            !illustPreview.contains(e.target) &&
-            !workIllustration.contains(e.target)) {
-            closeIllustPreview();
-        }
+    portraitPreview.addEventListener('mouseleave', () => {
+        portraitPreview.classList.remove('visible');
     });
 }
 
@@ -438,19 +332,12 @@ setupMobileClickPreview('workIpDesign', 'ipPreview');
 setupMobileClickPreview('workDetailPage', 'detailPreview');
 setupMobileClickPreview('workUiDesign', 'uiPreview');
 
-// 03 海报设计：移动端点击弹出 Modal
-const posterCard = document.getElementById('workPosterDesign');
-if (posterCard) {
-    posterCard.addEventListener('click', (e) => {
-        if (window.innerWidth > 768) return;
-        e.stopPropagation();
-        if (posterPreview.classList.contains('visible')) {
-            closePosterModal();
-        } else {
-            openPosterModal();
-        }
-    });
-}
+setupMobileClickPreview('workPosterDesign', 'posterPreview');
+setupMobileClickPreview('workIllustrationPoster', 'illustPreview');
+setupMobileClickPreview('workPortraitRetouch', 'portraitPreview');
+
+
+
 
 
 // ========================================
